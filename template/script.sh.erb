@@ -35,6 +35,8 @@ umask 077
 sed 's/^ \{2\}//' > "${RSESSION_WRAPPER_FILE}" << EOL
   #!/usr/bin/env bash
 
+  touch ${PWD}/hellorsession.txt
+
   # Log all output from this script
   export RSESSION_LOG_FILE="${PWD}/rsession.log"
   exec &>>"\${RSESSION_LOG_FILE}"
@@ -59,15 +61,11 @@ EOL
 )
 chmod 700 "${DBCONF}"
 
-set -x
-
 # Set working directory to home directory
 cd "${HOME}"
 
 # Create a unique $TMPDIR for runtime files
 ##export TMPDIR="$(mktemp -d)"
-
-echo $TMPDIR
 
 touch ${TMPDIR}/hello.txt
 
