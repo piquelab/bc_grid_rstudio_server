@@ -1,0 +1,7 @@
+
+mkdir /nfs/rprscratch/tools/rstudio/2023.12.0-369
+cd /nfs/rprscratch/tools/rstudio/2023.12.0-369
+wget https://download2.rstudio.org/server/centos7/x86_64/rstudio-server-rhel-2023.12.0-369-x86_64.rpm
+rpm2cpio rstudio-server-rhel-2023.12.0-369-x86_64.rpm | cpio -idmv
+mkdir /wsu/el7/groups/piquelab/rstudio-server/2023.12.0-369
+cp -R usr/lib/rstudio-server/* /wsu/el7/groups/piquelab/rstudio-server/2023.12.0-369

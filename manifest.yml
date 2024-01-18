@@ -1,8 +1,9 @@
 ---
-name: 5RStudio Server
+name: 5RStudio Server 2023.12.0-369
 category: Interactive Apps
 role: batch_connect
 description: "This app will launch [RStudio Server], an IDE for [R], on a cluster
-  node.\r\n\r\n[RStudio Server]: https://www.rstudio.com/products/rstudio-server/\r\n[R]:
-  https://www.r-project.org/\r\n"
+  node. Originally based on git@github.com:mcw-rcc/bc_rcc_rstudio_server.git but we
+  have it forked at git@github.com:piquelab/bc_grid_rstudio_server.git\r\n\r\n[RStudio
+  Server]: https://www.rstudio.com/products/rstudio-server/\r\n[R]: https://www.r-project.org/\r\n"
 icon: ''
