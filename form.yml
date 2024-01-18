@@ -21,7 +21,7 @@ attributes:
     help: |
       Amount of time you require, 48 hours is the limit. Please only request a reasonable amount of time so that others may make use of these limited resources.
     min: 1
-    max: 48
+    max: 168
     step: 1
   qos:
     widget: "select"
