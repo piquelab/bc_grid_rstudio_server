@@ -29,6 +29,7 @@ export PATH="$PATH:/wsu/el7/groups/piquelab/rstudio-server/2023.12.0-369/bin"
 # PAM auth helper used by RStudio
 export RSTUDIO_AUTH="${PWD}/bin/auth"
 
+
 # Generate an `rsession` wrapper script
 export RSESSION_WRAPPER_FILE="${PWD}/rsession.sh"
 (
@@ -62,6 +63,11 @@ EOL
 )
 chmod 700 "${DBCONF}"
 
+
+## --rsession-config-file
+export RSTUDIO_RSESSION_CONF="${PWD}/etc/rsession.conf"
+
+
 # Set working directory to home directory
 cd "${HOME}"
 
@@ -75,6 +81,10 @@ echo $RSTUDIO_PASSWORD
 # Output debug info
 module list
 
+echo "${RSTUDIO_AUTH}"
+echo "${RSTUDIO_RSESSION_CONF}"
+
+
 # Launch the RStudio Server
 echo "Starting up rserver..."
 set -x
@@ -84,6 +94,7 @@ rserver \
   --auth-pam-helper-path "${RSTUDIO_AUTH}" \
   --auth-encrypt-password 0 \
   --rsession-path "${RSESSION_WRAPPER_FILE}" \
+  --rsession-config-file "${RSTUDIO_RSESSION_CONF}" \
   --server-data-dir "${TMPDIR}" \
   --secure-cookie-key-file "${TMPDIR}/rstudio-server/secure-cookie-key" \
   --database-config-file "${DBCONF}" \
