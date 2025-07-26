@@ -1,7 +1,7 @@
 # bc_rcc_rstudio_server
 RStudio Server app for Open OnDemand
 
-Based on https://github.com/OSC/bc_osc_rstudio_server.
+Based on https://github.com/OSC/bc_osc_rstudio_server and https://github.com/mcw-rcc/bc_rcc_rstudio_server
 
 # Description
 This guide is a help to install the OOD RStudio Server app without requiring PRoot and/or Singularity. Prior to RStudio Server 1.3###, some hard-coded file paths caused a conflict when running multiple RStudio Server instances on the same server, as is the case when more than one OOD job launches to the same compute node. PRoot/Singularity fixed this issue by creating a unique TMP_DIR which was mounted into the container at /tmp. This fix successfully separated multiple instances running on the same server. To my knowledge, this was the primary benefit of using PRoot/Singularity. 
@@ -34,6 +34,15 @@ This creates a directory `~/rstudio_files/usr/lib/rstudio-server` that contains 
 cp -R ~/rstudio_files/usr/lib/rstudio-server/* /hpc/apps/rstudio-server/2022.02.2-485
 ```
 Optionally add a modulefile to load env.
+
+### For the WSU HPC we did the following:
+```
+cd /wsu/el7/groups/piquelab/rstudio-server/
+wget https://download2.rstudio.org/server/rhel8/x86_64/rstudio-server-rhel-2025.05.1-513-x86_64.rpm
+rpm2cpio rstudio-server-rhel-2025.05.1-513-x86_64.rpm | cpio -idmv
+mv usr/lib/rstudio-server ./2025.05.1-513
+rm -fr ./usr
+```
 
 ## RStudio Server OOD App
 To install the app:
