@@ -50,6 +50,13 @@ rpm2cpio rstudio-server-rhel-2023.12.1-402-x86_64.rpm | cpio -idmv
 mv usr/lib/rstudio-server ./2023.12.1-402
 rm -fr ./usr
 ```
+```
+cd /wsu/el7/groups/piquelab/rstudio-server/
+wget https://s3.amazonaws.com/rstudio-ide-build/server/centos7/x86_64/rstudio-server-rhel-2024.04.1-744-x86_64.rpm
+rpm2cpio rstudio-server-rhel-22024.04.1-744-x86_64.rpm | cpio -idmv
+mv usr/lib/rstudio-server ./2024.04.1-744
+rm -fr ./usr
+```
 
 
 ## RStudio Server OOD App
